@@ -1,0 +1,228 @@
+\documentclass[twocolumn,reprint,nofootinbib,longbibliography,prd,superscriptaddress]{revtex4-2}
+\usepackage{float}
+%\usepackage[showframe]{geometry}
+%\usepackage{subcaption}
+\usepackage{tikz,pgfplots,soul}
+\usepackage{subfigure}
+%\usepackage{authblk}
+\usepackage{amsfonts, amsmath, amssymb, bm,  enumerate, float, graphicx, graphics, color,mathrsfs,hyperref,nicefrac,physics,revsymb, lipsum}
+\usepackage[utf8]{inputenc}
+
+
+
+%This provides symbols for the set of Real and Complex numbers
+\newcommand  {\Rbar} {{\mbox{\rm$\mbox{I}\!\mbox{R}$}}}
+\newcommand  {\Hbar} {{\mbox{\rm$\mbox{I}\!\mbox{H}$}}}
+\newcommand {\Cbar}{\mathord{\setlength{\unitlength}{1em}
+		\begin{picture}(0.6,0.7)(-0.1,0) \put(-0.1,0){\rm C}
+			\thicklines \put(0.2,0.05){\line(0,1){0.55}}\end {picture}}}
+	
+	% other new commands
+\newcommand{\Lie}[0]{{\cal L}\, }
+\newcommand{\kt}{\kappa - C\tau}
+\newcommand{\kbar}{\bar{\kappa} - C\bar{\tau}}
+\newcommand{\kap}{\epsilon+\bar{\epsilon} - C(\gamma + \bar{\gamma})}
+\newcommand{\rIH}{r_{\mbox{\tiny{IH}}}}
+%\newcommand{\pbar}{\bar{\pi} - C \bar{\nu}}
+\newcommand{\hateq}{\hat{=}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\ssg}{\sqrt{\sigma}}
+\newcommand{\tsig}[1]{\, {}^{ #1 } \! \sigma}
+\newcommand{\td}{\text{d}}
+\newcommand{\tl}{\theta_{\ell}}
+\newcommand{\tn}{\theta_{\N}}
+\newcommand{\ptimes}{{+ \mspace{-14mu} \times}} 
+	
+\newcommand{\tL}{\theta_{(L)}}
+\newcommand{\tN}{\theta_{\N}}
+	
+	
+\newcommand{\scri}{\mathscr{I}}
+\newcommand{\ttau}[1]{ {\tau}^{{#1}/3}}
+	
+\newcommand{\RePt}[1]{{\mathrm{Re}} \left[ #1 \right]}
+\newcommand{\ImPt}[1]{{\mathrm{Im}} \left[ #1 \right]}
+\newcommand{\sh}[1]{\, {}^{ #1 } \! S}
+	
+\newcommand{\nn}{\nonumber}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\sq}{\sqrt{ {q}}}
+\newcommand{\tq}{ {q}}
+\newcommand{\hu}{\hat{u}}
+\newcommand{\hn}{\hat{N}}
+\newcommand{\bhu}{\hat{\mbox{\boldmath{$u$}}}}
+\newcommand{\bhn}{\hat{\mbox{\boldmath{$n$}}}}
+\newcommand{\bu}{\bar{u}}
+\newcommand{\bn}{\bar{n}}
+\newcommand{\htau}{\hat{\tau}}
+\newcommand{\hr}{\hat{N}}
+\newcommand{\tcV}{ {\beta}}
+\newcommand{\bV}{\bar{V}}
+\newcommand{\bN}{\bar{\N}}
+
+\newcommand{\A}{\mathsf{A}}
+\newcommand{\B}{\mathsf{B}}
+\newcommand{\C}{\mathsf{C}}
+\newcommand{\D}{\mathsf{D}}
+
+\newcommand{\ii}{\mathsf{i}}
+\newcommand{\jj}{\mathsf{j}}
+\newcommand{\kk}{\mathsf{k}}
+	
+\newcommand{\Heq}{\overset{\scriptscriptstyle{H}}{=}}
+\newcommand{\nHeq}{\overset{\scriptscriptstyle{H}}{\simeq}}
+\newcommand{\Seq}{\overset{\scriptscriptstyle{\Sigma}}{=}}
+\newcommand{\Neq}{\overset{\scriptscriptstyle{\mathcal{\N}}}{=}}
+\newcommand{\eqq}[1]{\overset{\scriptscriptstyle{#1}}{=}}
+\newcommand{\eq}[1]{\overset{\scriptscriptstyle{#1}}{\approx}}
+\newcommand{\Hap}{\overset{\scriptscriptstyle{H}}{\approx}}
+\newcommand{\Nap}{\overset{\scriptscriptstyle{\mathcal{\N}}}{approx}}
+	
+\newcommand{\sep}{\mbox{SEP}}
+	
+\newcommand{\Pt}{P_{\htau}}
+\newcommand{\Pq}{P_{\sqrt{\tq}}}
+\newcommand{\tom}{ {\Omega}}
+\newcommand{\tx}{ {x}}
+\newcommand{\tb}{ {\beta}}
+\newcommand{\lo}{\lambda_o}
+\newcommand{\tlam}{ {\lambda}}
+\newcommand{\vM}{\mbox{\boldmath$\epsilon$}}
+%\newcommand{\vB}{{}^{B}\mbox{\boldmath$\epsilon$}}
+\newcommand{\vB}{{}^{{}^{(B)}} \! \! \mbox{\boldmath$\epsilon$}}
+%\newcommand{\vSigma}{{}^{\Sigma}\mbox{\boldmath$\epsilon$}}
+%\newcommand{\vSigma}{\overset{\scriptscriptstyle{(\Sigma)}}{\mbox{\boldmath$\epsilon$}}}
+\newcommand{\vSigma}{{}^{{}^{(\Sigma)}} \! \! \mbox{\boldmath$\epsilon$}}
+%\newcommand{\vBt}{{}^{\mathcal{B}}\mbox{\boldmath$\epsilon$}}
+\newcommand{\vBt}{{}^{{}^{(\mathcal{B})}} \! \! \mbox{\boldmath$\epsilon$}}
+%\newcommand{\vH}{{}^{H}\mbox{\boldmath$\epsilon$}}
+\newcommand{\vH}{{}^{{}^{(H)}} \! \! \mbox{\boldmath$\epsilon$}}
+\newcommand{\vX}{{}^{{}^{(X)}} \! \! \mbox{\boldmath$\epsilon$}}
+%\newcommand{\vS}{{}^{(S)}\mbox{\boldmath$\epsilon$}}
+%\newcommand{\vS}{{}^{{}^{(S)}} \! \! \mbox{\boldmath$\epsilon$}}
+\newcommand{\vS}{\widetilde{\mbox{\boldmath$\epsilon$}}}
+\newcommand{\vtwo}{\widetilde{\mbox{\boldmath$\epsilon$}}}
+\newcommand{\epB}{{}^{{}^{(B)}} \! \! \epsilon}
+\newcommand{\epSigma}{{}^{{}^{(\Sigma)}} \! \! \epsilon}
+\newcommand{\epBt}{{}^{{}^{(\mathcal{B})}} \! \! \epsilon}
+\newcommand{\epH}{{}^{{}^{(H)}} \! \! \epsilon}
+%\newcommand{\epS}{{}^{{}^{(S)}} \! \! \epsilon}
+\newcommand{\epS}{\widetilde{\mbox{$\epsilon$}}}
+\newcommand{\bdv}{\mathbf{d}\mbox{\boldmath{$v$}}}
+\newcommand{\bdt}{\mathbf{d}\mbox{\boldmath{$t$}}}
+\newcommand{\lpb}{\underleftarrow{\mbox{\boldmath{$\ell$}}}}
+\newcommand{\bP}{\mathbf{P}}
+\newcommand{\bcH}{\mbox{\boldmath$\mathcal{H}$}}
+
+\newcommand{\uh}{\underline{h}}
+\newcommand{\iuh}{(\underline{h} \mkern-10mu\phantom{h}^{-1})}
+\newcommand{\oh}{\overline{h}\phantom{h}\mkern-10mu}
+\newcommand{\ioh}{(\overline{h} \mkern-10mu\phantom{h}^{-1})}
+
+\newcommand{\sD}{\mathcal{D} \mspace{-11mu} \slash}
+
+\newcommand{\tcb}[1]{{\color{blue}#1}}  
+%\newcommand{\norm}{| \mspace{-2mu} |}
+	
+\newcommand{\btau}{\mbox{\boldmath$\hat{\tau}$}}
+\newcommand{\bchi}{\mbox{\boldmath$\chi$}}
+\newcommand{\bL}{\mbox{\boldmath$L$}}
+\newcommand{\tsigma}{ {\sigma}}
+\newcommand{\cV}{\mathcal{V}}
+\newcommand{\sV}{\mathscr{V}}
+%\newcommand{\t\N}{ {\N}}
+\newcommand{\tP}{{\breve{P}}}
+\newcommand{\bv}{\big\vert}
+\newcommand{\N}{n}
+	
+\newcommand{\hz}{\hat{z}}
+\newcommand{\snp}{{\sigma^n_+}}
+\newcommand{\snc}{{\sigma^n_\times}}
+	
+%\newcommand{\ps}[1]{{\mbox{\tiny{($#1$)}}}}
+\newcommand{\ps}[1]{{\scriptscriptstyle{(#1)}}}
+
+\setuldepth{C}
+\newcommand{\mul}[1]{\mbox{\ul{$#1$}} }
+\newcommand{\et}[2]{\overset{\scriptscriptstyle{(#2)}}{#1}}
+	
+\newcommand{\ivan}[1]{{\color{violet}#1}}
+\newcommand{\cmts}[1]{{\color{blue}(#1)}}
+%\usepackage[nonatbib, preprint]{neurips_2021}
+%\usepackage[backend=biber,style=alphabetic,sorting=ynt]{neurips_2021}
+%\usepackage[final]{neurips_2019}
+%\usepackage{bibunits}
+
+%\addbibresource{grav_wave_case_ivp2.bib}
+
+\newcommand{\rah}[1]{{\color{blue}\bf [Robie: #1]}}
+\definecolor{ktbgreen}{RGB}{0, 100, 0}
+\newcommand{\ktb}[1]{{\color{red}[#1]}}
+\newcommand{\lan}[1]{{\color{red}\bf [Liam: #1]}}
+\newcommand{\sar}[1]{{\color{orange}\bf [Sarah: #1]}} 
+
+
+
+\begin{document}
+		
+		%\title{Horizon Evolution when Departing from a Moment of Time Symmetry}
+\title{McMaster Astronomy and Physics Students' Association\\\huge{Constitution}}
+
+
+\author{Kam To Billy Sievers}
+\email{sieversktb@mcmaster.ca}
+\affiliation{Department of Physics and Astronomy, McMaster University, Hamilton, Ontario, L8S 4M1, Canada}
+\maketitle
+\section{Name \& Purpose}
+\subsection{Name}The name of this club shall be the \textbf{McMaster Astronomy and Physics Students' Association}, abbreviated to MAPSA ("map-sah").
+\subsection{Purpose}
+MAPSA is a collection of peers among the Department of Physics and Astronomy graduate student body volunteering to improve the quality of life of its members by: 
+\begin{itemize}
+	\item being points of contact for the Department
+	\item organizing non-academic events 
+	\item serving as an alternative means of voicing members' concerns to the Department
+	\item disseminating information and promotions to the graduate student body
+	\item participating in Department Meetings as a student voice and to 
+\end{itemize}
+
+
+It is important to emphasize that this association must not take away from the personal and academic growth of participating members.
+
+\section{Membership \& Dues}
+\subsection{Eligibility \& Membership}
+\subsection{Dues}
+Dues shall be \$0 CAD per year, that is there are no dues. No financial instruments shall be exchanged between members for purposes of MAPSA operations.
+
+\section{Association Structure and Executives}
+\subsection{Structure}
+MAPSA employs a flat hierarchical structure. The nature of MAPSA  acting as point of contacts and  is no position higher than another, executives do not 
+\subsection{Representatives (Elected by Members)}
+One for each constituency and two for Department Meeting 
+\subsection{Officers (Elected by Reps)}
+The following officers are to be voted into their positions by the Representatives. Such officers may be nominated persons among the Representatives or any standing member. No one person shall conduct the role of multiple officers.
+\begin{itemize}
+	\item Chair
+	\item Treasury Officer
+	\item Communications Officer
+	\item Visitor Coordinator(s)$^*$
+	\item Events Coordinator(s)$^*$
+\end{itemize}
+$^*$a maximum of two such coordinators may take each position at any time.
+\subsection{Election}
+Elections are to be held each year during the final week of September by all members for their respective constituency's Representatives. The Representatives must conclude on a list of Officers before the end of October of each year.
+
+\section{Responsibilities of the Executives}
+\subsection{each role (Reps \& Officers)}
+
+\section{Meetings}
+
+
+\section{Constitutional Violations}
+\section{Continuation }
+
+\end{document}
+
+ 
