@@ -1,182 +1,147 @@
-\documentclass[onecolumn,aps,prd]{revtex4-2}
-\usepackage{float}
-%\usepackage[showframe]{geometry}
-%\usepackage{subcaption}
-\usepackage{tikz,pgfplots,soul}
-\usepackage{subfigure}
-%\usepackage{authblk}
-\usepackage{amsfonts, amsmath, amssymb, bm,  enumerate, float, graphicx, graphics, color,mathrsfs,hyperref,nicefrac,physics,revsymb, lipsum}
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{
+	letterpaper,
+	top=20mm,
+	bottom=20mm,
+	left=20mm,
+	right=20mm,
+}
+\usepackage{sectsty}
+\usepackage{enumitem}
 
-
-
-%This provides symbols for the set of Real and Complex numbers
-\newcommand  {\Rbar} {{\mbox{\rm$\mbox{I}\!\mbox{R}$}}}
-\newcommand  {\Hbar} {{\mbox{\rm$\mbox{I}\!\mbox{H}$}}}
-\newcommand {\Cbar}{\mathord{\setlength{\unitlength}{1em}
-		\begin{picture}(0.6,0.7)(-0.1,0) \put(-0.1,0){\rm C}
-			\thicklines \put(0.2,0.05){\line(0,1){0.55}}\end {picture}}}
-	
-	% other new commands
-\newcommand{\Lie}[0]{{\cal L}\, }
-\newcommand{\kt}{\kappa - C\tau}
-\newcommand{\kbar}{\bar{\kappa} - C\bar{\tau}}
-\newcommand{\kap}{\epsilon+\bar{\epsilon} - C(\gamma + \bar{\gamma})}
-\newcommand{\rIH}{r_{\mbox{\tiny{IH}}}}
-%\newcommand{\pbar}{\bar{\pi} - C \bar{\nu}}
-\newcommand{\hateq}{\hat{=}}
-\newcommand{\cM}{\mathcal{M}}
-\newcommand{\ssg}{\sqrt{\sigma}}
-\newcommand{\tsig}[1]{\, {}^{ #1 } \! \sigma}
-\newcommand{\td}{\text{d}}
-\newcommand{\tl}{\theta_{\ell}}
-\newcommand{\tn}{\theta_{\N}}
-\newcommand{\ptimes}{{+ \mspace{-14mu} \times}} 
-	
-\newcommand{\tL}{\theta_{(L)}}
-\newcommand{\tN}{\theta_{\N}}
-	
-	
-\newcommand{\scri}{\mathscr{I}}
-\newcommand{\ttau}[1]{ {\tau}^{{#1}/3}}
-	
-\newcommand{\RePt}[1]{{\mathrm{Re}} \left[ #1 \right]}
-\newcommand{\ImPt}[1]{{\mathrm{Im}} \left[ #1 \right]}
-\newcommand{\sh}[1]{\, {}^{ #1 } \! S}
-	
-\newcommand{\nn}{\nonumber}
-\newcommand{\be}{\begin{equation}}
-\newcommand{\ee}{\end{equation}}
-\newcommand{\bea}{\begin{eqnarray}}
-\newcommand{\eea}{\end{eqnarray}}
-\newcommand{\sq}{\sqrt{ {q}}}
-\newcommand{\tq}{ {q}}
-\newcommand{\hu}{\hat{u}}
-\newcommand{\hn}{\hat{N}}
-\newcommand{\bhu}{\hat{\mbox{\boldmath{$u$}}}}
-\newcommand{\bhn}{\hat{\mbox{\boldmath{$n$}}}}
-\newcommand{\bu}{\bar{u}}
-\newcommand{\bn}{\bar{n}}
-\newcommand{\htau}{\hat{\tau}}
-\newcommand{\hr}{\hat{N}}
-\newcommand{\tcV}{ {\beta}}
-\newcommand{\bV}{\bar{V}}
-\newcommand{\bN}{\bar{\N}}
-
-\newcommand{\A}{\mathsf{A}}
-\newcommand{\B}{\mathsf{B}}
-\newcommand{\C}{\mathsf{C}}
-\newcommand{\D}{\mathsf{D}}
-
-\newcommand{\ii}{\mathsf{i}}
-\newcommand{\jj}{\mathsf{j}}
-\newcommand{\kk}{\mathsf{k}}
-	
-\newcommand{\Heq}{\overset{\scriptscriptstyle{H}}{=}}
-\newcommand{\nHeq}{\overset{\scriptscriptstyle{H}}{\simeq}}
-\newcommand{\Seq}{\overset{\scriptscriptstyle{\Sigma}}{=}}
-\newcommand{\Neq}{\overset{\scriptscriptstyle{\mathcal{\N}}}{=}}
-\newcommand{\eqq}[1]{\overset{\scriptscriptstyle{#1}}{=}}
-\newcommand{\eq}[1]{\overset{\scriptscriptstyle{#1}}{\approx}}
-\newcommand{\Hap}{\overset{\scriptscriptstyle{H}}{\approx}}
-\newcommand{\Nap}{\overset{\scriptscriptstyle{\mathcal{\N}}}{approx}}
-	
-\newcommand{\sep}{\mbox{SEP}}
-	
-\newcommand{\Pt}{P_{\htau}}
-\newcommand{\Pq}{P_{\sqrt{\tq}}}
-\newcommand{\tom}{ {\Omega}}
-\newcommand{\tx}{ {x}}
-\newcommand{\tb}{ {\beta}}
-\newcommand{\lo}{\lambda_o}
-\newcommand{\tlam}{ {\lambda}}
-\newcommand{\vM}{\mbox{\boldmath$\epsilon$}}
-%\newcommand{\vB}{{}^{B}\mbox{\boldmath$\epsilon$}}
-\newcommand{\vB}{{}^{{}^{(B)}} \! \! \mbox{\boldmath$\epsilon$}}
-%\newcommand{\vSigma}{{}^{\Sigma}\mbox{\boldmath$\epsilon$}}
-%\newcommand{\vSigma}{\overset{\scriptscriptstyle{(\Sigma)}}{\mbox{\boldmath$\epsilon$}}}
-\newcommand{\vSigma}{{}^{{}^{(\Sigma)}} \! \! \mbox{\boldmath$\epsilon$}}
-%\newcommand{\vBt}{{}^{\mathcal{B}}\mbox{\boldmath$\epsilon$}}
-\newcommand{\vBt}{{}^{{}^{(\mathcal{B})}} \! \! \mbox{\boldmath$\epsilon$}}
-%\newcommand{\vH}{{}^{H}\mbox{\boldmath$\epsilon$}}
-\newcommand{\vH}{{}^{{}^{(H)}} \! \! \mbox{\boldmath$\epsilon$}}
-\newcommand{\vX}{{}^{{}^{(X)}} \! \! \mbox{\boldmath$\epsilon$}}
-%\newcommand{\vS}{{}^{(S)}\mbox{\boldmath$\epsilon$}}
-%\newcommand{\vS}{{}^{{}^{(S)}} \! \! \mbox{\boldmath$\epsilon$}}
-\newcommand{\vS}{\widetilde{\mbox{\boldmath$\epsilon$}}}
-\newcommand{\vtwo}{\widetilde{\mbox{\boldmath$\epsilon$}}}
-\newcommand{\epB}{{}^{{}^{(B)}} \! \! \epsilon}
-\newcommand{\epSigma}{{}^{{}^{(\Sigma)}} \! \! \epsilon}
-\newcommand{\epBt}{{}^{{}^{(\mathcal{B})}} \! \! \epsilon}
-\newcommand{\epH}{{}^{{}^{(H)}} \! \! \epsilon}
-%\newcommand{\epS}{{}^{{}^{(S)}} \! \! \epsilon}
-\newcommand{\epS}{\widetilde{\mbox{$\epsilon$}}}
-\newcommand{\bdv}{\mathbf{d}\mbox{\boldmath{$v$}}}
-\newcommand{\bdt}{\mathbf{d}\mbox{\boldmath{$t$}}}
-\newcommand{\lpb}{\underleftarrow{\mbox{\boldmath{$\ell$}}}}
-\newcommand{\bP}{\mathbf{P}}
-\newcommand{\bcH}{\mbox{\boldmath$\mathcal{H}$}}
-
-\newcommand{\uh}{\underline{h}}
-\newcommand{\iuh}{(\underline{h} \mkern-10mu\phantom{h}^{-1})}
-\newcommand{\oh}{\overline{h}\phantom{h}\mkern-10mu}
-\newcommand{\ioh}{(\overline{h} \mkern-10mu\phantom{h}^{-1})}
-
-\newcommand{\sD}{\mathcal{D} \mspace{-11mu} \slash}
-
-\newcommand{\tcb}[1]{{\color{blue}#1}}  
-%\newcommand{\norm}{| \mspace{-2mu} |}
-	
-\newcommand{\btau}{\mbox{\boldmath$\hat{\tau}$}}
-\newcommand{\bchi}{\mbox{\boldmath$\chi$}}
-\newcommand{\bL}{\mbox{\boldmath$L$}}
-\newcommand{\tsigma}{ {\sigma}}
-\newcommand{\cV}{\mathcal{V}}
-\newcommand{\sV}{\mathscr{V}}
-%\newcommand{\t\N}{ {\N}}
-\newcommand{\tP}{{\breve{P}}}
-\newcommand{\bv}{\big\vert}
-\newcommand{\N}{n}
-	
-\newcommand{\hz}{\hat{z}}
-\newcommand{\snp}{{\sigma^n_+}}
-\newcommand{\snc}{{\sigma^n_\times}}
-	
-%\newcommand{\ps}[1]{{\mbox{\tiny{($#1$)}}}}
-\newcommand{\ps}[1]{{\scriptscriptstyle{(#1)}}}
-
-\setuldepth{C}
-\newcommand{\mul}[1]{\mbox{\ul{$#1$}} }
-\newcommand{\et}[2]{\overset{\scriptscriptstyle{(#2)}}{#1}}
-	
-\newcommand{\ivan}[1]{{\color{violet}#1}}
-\newcommand{\cmts}[1]{{\color{blue}(#1)}}
-%\usepackage[nonatbib, preprint]{neurips_2021}
-%\usepackage[backend=biber,style=alphabetic,sorting=ynt]{neurips_2021}
-%\usepackage[final]{neurips_2019}
-%\usepackage{bibunits}
-
-%\addbibresource{grav_wave_case_ivp2.bib}
-
-\newcommand{\rah}[1]{{\color{blue}\bf [Robie: #1]}}
-\definecolor{ktbgreen}{RGB}{0, 100, 0}
-\newcommand{\ktb}[1]{{\color{red}[#1]}}
-\newcommand{\lan}[1]{{\color{red}\bf [Liam: #1]}}
-\newcommand{\sar}[1]{{\color{orange}\bf [Sarah: #1]}} 
-
-
+\allsectionsfont{\normalfont\bfseries}
+\setlist[enumerate,1]{label=\arabic*.}
+\setlist[itemize,1]{label=\textbullet}
 
 \begin{document}
-		
-		%\title{Horizon Evolution when Departing from a Moment of Time Symmetry}
-\title{{McMaster Astronomy and Physics Graduate Students' Association}\\\huge{Constitution}}
-%\author{Kam To Billy Sievers}
-%\email{sieversktb@mcmaster.ca}
-%\affiliation{Department of Physics and Astronomy, McMaster University, Hamilton, Ontario, L8S 4M1, Canada}
-\maketitle
-Created on \today.
-\section{Preamble}
-\subsection{Name}
+	
+	\begin{center}
+		\textbf{\Huge{Constitution}}\\\normalsize{of the}\\McMaster Astronomy and Physics Graduate Student Association\\~\\
+		published\today
+	\end{center}
+	\tableofcontents	
+	\pagebreak
+	\section{Name \& Purpose}
+	\subsection{Name}
+	The organization of McMaster physics and astronomy graduate students shall hereafter be referred to as the McMaster Astronomy and Physics Graduate Student Association, abbreviated to MAPGSA (``map-G-S-A''), but commonly nicknamed and referred henceforth as MAPSA (``map-sah'').
+	\subsection{Purpose}
+	MAPSA is a collection of peers among the Department of Physics and Astronomy graduate student body \underline{volunteering} to improve the quality of life of its members by the following purposes:
+	\begin{itemize}
+		\item To provide a platform for graduate student concerns to be expressed to the department and university and to represent the interests of graduate students at department meetings.
+		\item To disseminate important information to the graduate student body.
+		\item To coordinate, promote, and enhance graduate student social events.
+		\item To assist graduate students in obtaining support for issues related to harassment, discrimination, mental health, and inter-personal conflicts.
+	\end{itemize}
+	It is important to emphasize that this association must not take away from the personal and academic growth of participating members. Members participating in executive roles in MAPSA must be able and willing -- there shall be no coercion of participation from peers, faculty, or likewise.
+	
+	\section{Membership}
+	\subsection{Eligibility}
+	Membership in MAPSA shall be automatic for all graduate students in the Department of Physics and Astronomy at McMaster. Membership in this club is open to all such students in accordance with all criteria enumerated in the ``GSA Clubs Operating Policies'' document and is offered irrespective of race, religion, gender, class, age, nationality, ability, marital status, veteran status, or sexual orientation.
+	
+	\subsection{Dues}
+	There shall be no dues for participating in MAPSA.
+	
+	\section{Association Structure and Executives}
+	\subsection{Structure}
+	Standing members are to be part of Constituencies, categorized by their specialty in each field of physics and astronomy according to their supervisors' specialty. Standing members vote at the beginning of each academic year for their Representative and Meeting Representative. The Representatives then goes on to nominate and elect Officers and Coordinators among the pool of Representatives or any standing member. Officers hold the executive roles in MAPSA, but must seek majority approval from the Representatives for most motions. 
+	\subsection{Constituencies}
+	\begin{itemize}
+		\item \textbf{Astronomy}: e.g. students under supervision of A. Chen, L. Parker, R. Pudritz, A. Sills, J. Wadsley, C. Wilson, B. Harris, H. Couchman, D. Welch.
+		\item \textbf{Theoretical Physics} (Condensed Matter \& High-Energy): e.g. students under supervision of C. Burgess, S. Sibiryakov, D. O'Dell, H. Kunduri, S. Lee, E. Sørensen.
+		\item \textbf{Soft Matter and Biophysics}: e.g. students under supervision of K. Dalnoki-Veress, C. Fradin, P. Higgs, M. Rheinstadter, A. Shi.
+		\item \textbf{Condensed Matter Experiment}: e.g. students under supervision of B. Gaulin, T. Imai, G. Luke, D. Venus.
+		\item \textbf{Rad-Grad}: e.g. students under supervision of F. McNeill, D. Chettle, S. H. Byun, J. Juhasz
+		\item \textbf{International Students}: Non- Permanent Residents or Citizens of Canada.
+	\end{itemize}
+	
+	\subsection{Representatives (Elected by Members)}
+	Those seeking the role of the Representative of their constituency should first address peers of their constituency before conveying their nomination to the Election Officer. 
+	\begin{itemize}
+		\item \textbf{Representatives}: To be nominated and voted upon by their corresponding Constituency. There shall be one Representative from each Constituency. Representatives hold approval and veto power over the Officers.
+		\item \textbf{Meeting Representative}: To be nominated and voted upon by the Standing Members. Meeting Representatives do not have voting power over the Officers as opposed to Representatives.
+	\end{itemize}
+	\subsection{Officers (Elected by Representatives)}
+	The following officers are to be nominated voted into their positions by the Representatives. Such officers may be nominated persons among the Representatives or any standing member. No one person shall conduct the role of multiple officers.
+	\begin{itemize}
+		\item Chairperson (Officer)
+		\item Communications Officer
+		\item Treasury Officer$^\star$
+		\item Visitor Coordinator(s)$^*$
+		\item Events Coordinator(s)$^*$
+		\item Election Tsar$^\dagger$
+	\end{itemize}
+	$^\star$the Treasury Officer position shall only be available when MAPSA is approved as a GSA club or when there is otherwise financial reporting that is required for the procurement of finances\\
+	$^*$a maximum of two such coordinators may take each position at any time\\
+	$^\dagger$this person holds this title from their appointment to the conclusion of the Election
+	
+	\section{Responsibilities and Expectations}
+	\subsection{Standing Members}
+	\begin{itemize}
+		\item MAPSA standing members are \underline{expected} to vote for their corresponding Representative and voice dejection when applicable of the Executives when any arises. 
+		\item Standing members and participants of MAPSA-sanctioned events are also \underline{expected} to conduct themselves in manner befitting of Department and University interests--that is to treat all (participants and bystanders) with mutual respect, professionalism, and courtesy. 
+		\item Otherwise, members are encouraged to enjoy their academic journey with this group of friends--MAPSA is founded on attempting to support and enhance this notion.
+	\end{itemize}
+	\subsection{Representatives}
+	\begin{itemize}
+		\item Officers must be available to members to discuss any concerns regarding department culture and department policies. Details of these discussions must be kept confidential.
+		\item Officers of the directly elected leadership must represent the interests of their constituents honestly at department and Council meetings and with consideration to all constituent opinions.
+		\item Each year the officers must collect input from students on course offerings and general improvements for the graduate student program and present this to the department.
+		\item Directly elected representatives are responsible for maintaining and updating a list of the current membership of their constituency, along with an avenue of contact for each member.
+		\item If the department requests MAPSA representation (e.g. at department meetings, retreats, colloquium committee meetings), the officers will appoint a representative to attend.
+	\end{itemize}
+	\subsection{Meeting Representatives}
+	\begin{itemize}
+		\item Meeting Representatives are \underline{responsible} for attendance at meetings upon the Department's request as ``Graduate Student Representation'' or likewise.\\
+		This includes but is not limited to: Department Meetings, Department EDI Committee Meetings, Department Colloquium Meetings. Typically, two Meeting Representatives are preferred at these meetings, but one may suffice on instances of urgent absence. 
+		\item Upon realization of both Meeting Representatives being unavailable for a Meeting, it is the \underline{responsibility} of the Meeting Representative(s) to seek an able and willing Standing Member to attend in their place and convey this information to the MAPSA Chair and the appropriate Department contact.
+		\item The Meeting Representatives are also \underline{responsible} to convey information gleaned at attended meetings to the Standing Members in a concise and accurate fashion. 
+		\item This information is \underline{expected} to be disseminated with one calendar week of the meeting.
+	\end{itemize} 
+	\subsection{Chairperson}
+	\subsection{Communications Officer}
+	\subsection{Treasury Officer}
+	\subsection{Visitor Coordinator}
+	\subsection{Events Coordinator}
+	\subsection{Election Tsar}
+	an (willing) Election Tsar is to be appointed by the Chair without disapproval from any Representative before the Address.
+	
+	\section{Election}
+	Elections are to be held each year during the final week of September by all members for their respective constituency's Representatives. The Representatives must conclude on a list of Officers before the end of October of each year.
+	
+	\section{Meetings and Communication}
+	\subsection{Code of Conduct}
+	Meetings must be conducted in such a way that all members have an opportunity to express their viewpoints. Any behaviour which seeks to discriminate against a member for any reason outlined in article 2.1, or which seeks to silence dissenting opinions will not be tolerated and may result in ejection from the meeting. A motion must be made for ejections and voted on by attending MAPSA members in the room with simple majority required to pass.
+	
+	\subsection{Frequency}
+	The Council shall meet at least twice per term. In addition, a meeting can also be called with signatures from at least 5 members of MAPSA for a date to be determined by those members whose signatures have been offered.
+	
+	\subsection{Attendance and Access}
+	Notice of meetings of the Council will be sent one week prior to the meeting with the agenda of the upcoming meeting to be included. All meetings must be open to all members. The opportunity to voice concerns must be made available to attending students except in those cases where an attending student violates the code of conduct outlined in article 5.1. Meeting minutes will be taken by a member of the Council and sent out to all MAPSA members.
+	
+	\subsection{Voting}
+	Referendums are required for any change to the Constitution, suggestions to the department on behalf of the graduate student body, or as decided on by the Council. Referendums will follow voting procedure as outlined in article 6. Other business pertaining to the day-to-day running of the Council may be approved by simple majority in the presence of a quorum consisting of three quarters of the Council.
+	
+	\subsection{Yearly Review}
+	A review of the Council positions shall be conducted prior to the September election period. The standing representation must be approved by unanimous consent of the Council. In the case of non-unanimous consent, the standing representation may be modified according to the following guidelines:
+	\begin{itemize}
+		\item If the constituencies are deemed to have failed to properly represent the graduate student body, the Council must present at least two proposals of constituencies, with one necessarily being the standing representation, for referendum. The result of the referendum will amend article 4.2.
+		\item If a committee is deemed to have failed to meet the requirements as outlined in article 3.3, or in the case of a new committee seeking representation on the Council, a referendum will be held to amend article 4.3.
+	\end{itemize}
+	\section{Referendums}
+	All referendums as outlined in article 5.4 must be presented to graduate students no less than two weeks before the vote. A reminder email must be sent out both the day before the vote and no less than one week ahead of the vote. A simple majority is sufficient to approve referendums. Referendums must have a participation of at least 50\% of the MAPSA membership to pass. Should a referendum fail to reach quorum, the referendum also fails.
+	
+	\section{Elections}
+	Elections are to be held every year during the last week of September to determine the directly elected representatives of the standing constituencies. Nominations for the elected representative positions will take place in the week prior to elections. The organization of the election shall be conducted by the Election Organizer, as outlined in article 3.1. Only students within a constituency may vote for the representative of that constituency. Elections must guarantee the anonymity of the voters. Newly elected officers take office from October 1\textsuperscript{st} of the year of election to October 1\textsuperscript{st} of the following year. The elections are by simple majority of the voting constituency in the case of two-candidate elections. In the case of a single-candidate election, a majority approval is required. If there are more than two candidates for a given constituency, voting will occur in two phases: the top two candidates from the first phase of voting will compete in a runoff election.
+	
+	\section{Removal of Officers}
+	In the case that an officer is removed from their position, an election must be held within one month to fill the vacant position.
+	
+	\subsection{Officer Resignation}
+	Officers may resign from their roles during their elected term by notifying the Council.
+	
+	\subsection{Officer Dismissal}
+	Any member of MAPSA can make a motion to dismiss a directly elected officer who is not fulfilling their responsibilities. A majority vote by the officer's constituency and the Council must be met to dismiss an officer.
+	
 \end{document}
-
- 
